@@ -1,0 +1,58 @@
+import numpy as np
+
+def calculate():
+    # Taking 9 inputs to create a 3x3 matrix
+    x = [int(input(f"Enter number {i+1} : ")) for i in range(9)]
+    matrix = np.reshape(x, (3, 3))
+    
+    # Calculating different statistics
+    x1 = np.mean(x)  # Mean of all elements
+    x3 = np.std(x)  # Standard deviation of all elements
+    x4 = x3 ** 2  # Variance (standard deviation squared)
+    x5 = np.max(x)  # Maximum value
+    x6 = np.min(x)  # Minimum value
+    x7 = np.sum(x)  # Sum of all elements
+
+    # Mean along rows and columns
+    x8_row = np.mean(matrix, axis=1)  # Mean for each row
+    x8_col = np.mean(matrix, axis=0)  # Mean for each column
+    x8 = (x8_row, x8_col)  # Tuple of row-wise and column-wise means
+
+    # Standard deviation along rows and columns
+    x9_row = np.std(matrix, axis=1)  # Std for each row
+    x9_col = np.std(matrix, axis=0)  # Std for each column
+    x9 = (x9_row, x9_col)  # Tuple of row-wise and column-wise std devs
+
+    # Variance (standard deviation squared)
+    x10_row = x9_row ** 2  # Variance for each row
+    x10_col = x9_col ** 2  # Variance for each column
+    x10 = (x10_row, x10_col)  # Tuple of row-wise and column-wise variance
+
+    # Max and Min along rows and columns
+    x11_row = np.max(matrix, axis=1)  # Max for each row
+    x11_col = np.max(matrix, axis=0)  # Max for each column
+    x11 = (x11_row, x11_col)
+
+    x12_row = np.min(matrix, axis=1)  # Min for each row
+    x12_col = np.min(matrix, axis=0)  # Min for each column
+    x12 = (x12_row, x12_col)
+
+    # Sum along rows and columns
+    x13_row = np.sum(matrix, axis=1)  # Sum for each row
+    x13_col = np.sum(matrix, axis=0)  # Sum for each column
+    x13 = (x13_row, x13_col)
+
+    # Display the results
+    print("Matrix:")
+    print(matrix)
+    print("\nCalculations:")
+    print("Mean (Rows, Columns):", x8)
+    print("Standard Deviation (Rows, Columns):", x9)
+    print("Variance (Rows, Columns):", x10)
+    print("Max (Rows, Columns):", x11)
+    print("Min (Rows, Columns):", x12)
+    print("Sum (Rows, Columns):", x13)
+
+    return x1
+
+calculate()
